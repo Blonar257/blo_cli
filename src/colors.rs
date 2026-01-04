@@ -1,3 +1,4 @@
+#[derive(Copy, Clone)]
 pub enum Color {
     Red,
     Green,
@@ -9,6 +10,7 @@ pub enum Color {
     Black,
 }
 
+#[derive(Copy, Clone)]
 pub enum BackgroundColor {
     Red,
     Green,
@@ -21,7 +23,7 @@ pub enum BackgroundColor {
 }
 
 impl Color {
-    fn code(&self) -> &str {
+    pub fn code(&self) -> &str {
         match self {
             Color::Red => "\x1b[31m",
             Color::Green => "\x1b[32m",
@@ -36,7 +38,7 @@ impl Color {
 }
 
 impl BackgroundColor {
-    fn code(&self) -> &str {
+    pub fn code(&self) -> &str {
         match self {
             BackgroundColor::Red => "\x1b[41m",
             BackgroundColor::Green => "\x1b[42m",
