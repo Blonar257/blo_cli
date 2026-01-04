@@ -44,4 +44,9 @@ fn main() {
         )
     );
     println!("---");
+    let test = format!("{}", fg_colorize("Hallo Leute!", Color::Blue));
+    println!(
+        "{}",
+        border(test.as_str(), BorderStyle::Rounded, Some(Color::Black))
+    );
 }
