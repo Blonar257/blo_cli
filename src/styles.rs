@@ -1,10 +1,17 @@
+/// Text styling options for terminal output.
+///
+/// Provides common text styling effects using ANSI escape codes.
 pub enum TextStyle {
+    /// Bold/bright text
     Bold,
+    /// Italic text
     Italic,
+    /// Underlined text
     Underline,
 }
 
 impl TextStyle {
+    /// Returns the ANSI escape code for this text style.
     fn code(&self) -> &str {
         match self {
             TextStyle::Bold => "\x1b[1m",
@@ -14,15 +21,47 @@ impl TextStyle {
     }
 }
 
+/// Border styles for text boxes.
+///
+/// Defines different visual styles for borders around text.
 pub enum BorderStyle {
+    /// Angular/sharp corners (┌─┐│└┘)
     Angular,
+    /// Rounded corners (╭─╮│╰╯)
     Rounded,
 }
 
+/// Applies a text style to the given text using ANSI escape codes.
+///
+/// # Arguments
+/// * `text` - The text to style
+/// * `style` - The text style to apply
+///
+/// # Example
+/// ```
+/// use blo_cli::styles::{TextStyle, style};
+/// let bold = style("Important", TextStyle::Bold);
+/// ```
 pub fn style(text: &str, style: TextStyle) -> String {
     format!("{}{}{}", style.code(), text, "\x1b[0m")
 }
 
+/// Wraps text in a border with optional color.
+///
+/// Supports multi-line text and automatically adjusts width to fit the longest line.
+///
+/// # Arguments
+/// * `text` - The text to wrap (can contain newlines)
+/// * `style` - The border style (Angular or Rounded)
+/// * `border_color` - Optional color for the border
+///
+/// # Example
+/// ```
+/// use blo_cli::styles::{BorderStyle, border};
+/// use blo_cli::colors::Color;
+/// let boxed = border("Hello", BorderStyle::Angular, None);
+/// let colored = border("World", BorderStyle::Rounded, Some(Color::Green));
+/// ```
 pub fn border(
     text: &str,
     style: BorderStyle,
