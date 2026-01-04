@@ -1,6 +1,13 @@
 [package]
 name = "blo_cli"
-version = "0.1.0"
-edition = "2024"
+version = "0.2.0"
+edition = "2021"
+authors = ["Blonar"]
+description = "A simple Rust library for styling terminal text with ANSI escape codes"
+license = "MIT"
+repository = "https://github.com/Blonar257/blo_cli"
+homepage = "https://github.com/Blonar257/blo_cli"
+keywords = ["terminal", "color", "ansi", "styling", "border"]
+categories = ["command-line-utilities"]
 
 [dependencies]
