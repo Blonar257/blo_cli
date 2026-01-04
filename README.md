@@ -1,22 +1,22 @@
 # blo_cli
 
-Eine einfache Rust-Bibliothek für das Styling von Terminal-Text mit ANSI-Escape-Codes.
+A simple Rust library for styling terminal text with ANSI escape codes.
 
 ## Features
 
-- **Farben**: Unterstützt Vordergrundfarben (Red, Green, Blue, Yellow, Pink, Cyan, White, Black) und Hintergrundfarben.
-- **Text-Styles**: Bold, Italic, Underline.
-- **Borders**: Erstelle Rahmen um Text mit Angular- oder Rounded-Stil, optional mit Farben.
+- **Colors**: Supports foreground colors (Red, Green, Blue, Yellow, Pink, Cyan, White, Black) and background colors.
+- **Text Styles**: Bold, Italic, Underline.
+- **Borders**: Create borders around text with Angular or Rounded style, optionally with colors.
 
 ## Installation
 
-Füge die Bibliothek zu deinem Projekt hinzu:
+Add the library to your project:
 
 ```bash
 cargo add blo_cli
 ```
 
-Oder klone das Repository und baue es lokal:
+Or clone the repository and build it locally:
 
 ```bash
 git clone https://github.com/Blonar257/blo_cli.git
@@ -24,9 +24,9 @@ cd blo_cli
 cargo build
 ```
 
-## Verwendung
+## Usage
 
-### Beispiel
+### Example
 
 ```rust
 use blo_cli::colors::Color;
@@ -34,59 +34,59 @@ use blo_cli::colors::{fg_colorize, bg_colorize};
 use blo_cli::styles::{TextStyle, style, BorderStyle, border};
 
 fn main() {
-    // Text in Blau farben
-    println!("{}", fg_colorize("Hallo Welt!", Color::Blue));
+    // Color text in blue
+    println!("{}", fg_colorize("Hello World!", Color::Blue));
 
-    // Text fett machen
-    println!("{}", style("Hallo Welt!", TextStyle::Bold));
+    // Make text bold
+    println!("{}", style("Hello World!", TextStyle::Bold));
 
-    // Text unterstreichen
-    println!("{}", style("Hallo Welt!", TextStyle::Underline));
+    // Underline text
+    println!("{}", style("Hello World!", TextStyle::Underline));
 
-    // Text mit Angular-Border
-    println!("{}", border("Hallo Welt!", BorderStyle::Angular, None));
+    // Text with angular border
+    println!("{}", border("Hello World!", BorderStyle::Angular, None));
 
-    // Text mit Rounded-Border in Rot
-    println!("{}", border("Hallo Welt!", BorderStyle::Rounded, Some(Color::Red)));
+    // Text with rounded border in red
+    println!("{}", border("Hello World!", BorderStyle::Rounded, Some(Color::Red)));
 }
 ```
 
-### Border-Funktionen
+### Border Functions
 
-Die `border()`-Funktion erstellt einen Rahmen um Text:
+The `border()` function creates a border around text:
 
 ```rust
 use blo_cli::styles::{BorderStyle, border};
 use blo_cli::colors::Color;
 
-// Einfacher Angular-Border (ohne Farbe)
+// Simple angular border (without color)
 println!("{}", border("Info", BorderStyle::Angular, None));
 
-// Rounded-Border mit Rot
-println!("{}", border("Warnung", BorderStyle::Rounded, Some(Color::Red)));
+// Rounded border in red
+println!("{}", border("Warning", BorderStyle::Rounded, Some(Color::Red)));
 
-// Multi-line Text mit Border
-println!("{}", border("Zeile 1\nZeile 2", BorderStyle::Angular, Some(Color::Green)));
+// Multi-line text with border
+println!("{}", border("Line 1\nLine 2", BorderStyle::Angular, Some(Color::Green)));
 ```
 
-**BorderStyle-Optionen:**
-- `BorderStyle::Angular`: Eckige Rahmen (┌─┐│└┘)
-- `BorderStyle::Rounded`: Gerundete Rahmen (╭─╮│╰╯)
+**BorderStyle Options:**
+- `BorderStyle::Angular`: Angular corners (┌─┐│└┘)
+- `BorderStyle::Rounded`: Rounded corners (╭─╮│╰╯)
 
-**Farben:** Alle Farben (Red, Green, Blue, Yellow, Pink, Cyan, White, Black) werden unterstützt.
+**Colors:** All colors (Red, Green, Blue, Yellow, Pink, Cyan, White, Black) are supported.
 
-### Vollständiges Demo
+### Complete Demo
 
-Siehe `examples/demo.rs` für mehr Beispiele, einschließlich Hintergrundfarben und Borders.
+See `examples/demo.rs` for more examples, including background colors and borders.
 
 ## Tests
 
-Führe die Tests aus:
+Run the tests:
 
 ```bash
 cargo test
 ```
 
-## Lizenz
+## License
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert.
+This project is licensed under the MIT License.
